@@ -1,0 +1,23 @@
+.page-header
+  = link_to products_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_product_path(@product), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show product
+
+%dl.dl-horizontal
+  -@product.images.each do |image|
+    %p
+      =image_tag(image.url, class: "img-responsive")
+  %dt Name:
+  %dd= @product.name
+  %dt Description:
+  %dd= @product.description
+  %dt Ingredients:
+  %dd= @product.ingredients
+  %dt Msrp:
+  %dd= @product.msrp
+  %dt Slug:
+  %dd= @product.slug
