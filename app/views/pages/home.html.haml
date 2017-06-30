@@ -6,7 +6,9 @@
   %p
     %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more
 
-.col-xs-12.col-sm-8
+.col-xs-12.col-sm-2
+  Categories
+.col-xs-12.col-sm-7
   - @product_weeks.sort.each do |week, products|
     %h2
       Week:
@@ -26,5 +28,5 @@
             =product.description
 
       %hr
-.col-xs-12.col-sm-4
+.col-xs-12.col-sm-3
   Newsletter
