@@ -31,6 +31,10 @@
     .col-sm-10
       = f.collection_select :category_id, Category.all, :id, :name, class: 'form-control'
   .form-group
+    = f.label :publish_at, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.datetime_select :publish_at, :ampm => true, class: 'form-control'
+  .form-group
     = f.label "Upload Images", class: 'col-sm-2 control-label'
     .col-sm-10
       = f.file_field :images, multiple: true

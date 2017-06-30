@@ -1,7 +1,8 @@
 class PagesController < ApplicationController
   def home
-    @products = Product.all
-    @product_weeks = @products.group_by { |t| t.updated_at.beginning_of_week }
+    @products = Product.where("publish_at < ?", Time.now)
+    @product_weeks = @products.group_by { |t| t.publish_at.beginning_of_week }
+    @wide = true
   end
 
   def contact

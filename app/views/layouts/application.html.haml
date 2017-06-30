@@ -47,7 +47,7 @@
               %li=link_to "Sign up", new_user_registration_path
 
 
-    .container
+    .main-wrapper{:class => ("container" unless @wide)}
       - flash.each do |name, msg|
         = content_tag :div, class: "alert alert-#{name == :error ? "danger" : "success" } alert-dismissable", role: "alert" do
           %button.close{type: "button", data: {dismiss: "alert"} }

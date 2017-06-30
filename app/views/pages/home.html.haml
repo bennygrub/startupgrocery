@@ -1,32 +1,42 @@
 %h4
 .jumbotron
-  %h2 Discover the best new food products, everday.
-  %p
-    Startup Grocery finds the best new products, every day. It's a place for food lovers to find, share and try out the hotest food entrepreneurs best food creations.
-  %p
-    %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Learn more
+  .container
+    .col-xs-12.col-sm-8
+      %h2 Discover the best new food products, everday.
+      %p
+        Startup Grocery finds the best new products, every day. It's a place for food lovers to find, share and try out the hotest food entrepreneurs best food creations.
+      %p
+        %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Sign Up
+    .col-xs-12.col-sm-4
+      =image_tag("food-icon.png")
+.bg-grey
+  .container
+    .col-xs-12.col-sm-2
+      %h4 Categories
+      -Category.all.each do |category|
+        =link_to category_path(category) do
+          .category-box
+            =category.name
+    .col-xs-12.col-sm-8
+      - @product_weeks.sort.reverse.each do |week, products|
+        .week-box
+          %h2.text-center
+            Week of
+            = week.beginning_of_week.strftime('%b %d')
+            to
+            = week.end_of_week.strftime('%b %d, %Y')
+          %hr
+          -products.each do |product|
+            .media
+              .media-left.media-middle
+                =link_to product do
+                  =image_tag(product.images.first.url, class: "media-object", style: "max-width: 300px;")
+              .media-body.media-middle
+                %h4.media-heading
+                  =product.name
+                %p
+                  =product.description
 
-.col-xs-12.col-sm-2
-  Categories
-.col-xs-12.col-sm-7
-  - @product_weeks.sort.each do |week, products|
-    %h2
-      Week:
-      = week.beginning_of_week.strftime('%b %d')
-      to
-      = week.end_of_week.strftime('%b %d, %Y')
-    %hr
-    -products.each do |product|
-      .media
-        .media-left.media-middle
-          =link_to product do
-            =image_tag(product.images.first.url, class: "media-object", style: "max-width: 300px;")
-        .media-body.media-middle
-          %h4.media-heading
-            =product.name
-          %p
-            =product.description
-
-      %hr
-.col-xs-12.col-sm-3
-  Newsletter
+            %hr
+    .col-xs-12.col-sm-2
+      %h4 Newsletter

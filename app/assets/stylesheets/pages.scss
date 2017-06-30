@@ -1,3 +1,38 @@
 // Place all the styles related to the pages controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.bg-grey {
+  background: #eeeeee;
+  padding: 50px 0px;
+  border-top: #c4c4c4 1px solid;
+}
+
+.jumbotron{background-color:white;}
+
+.week-box{
+  background: white;
+  border: 1px solid lightgrey;
+  margin-bottom: 30px;
+  padding: 15px;
+  h2{font-weight: 100;}
+}
+
+.category-box {
+  padding: 10px 5px;
+  border: 1px solid lightgrey;
+  margin: 10px 0;
+  background: #f7f7f7;
+  
+  &:hover{background:white;}
+  
+  a{color:grey;}
+}
+
+.navbar-default{background-color:white;}
+
+a{
+  color:grey;
+  &:hover{color:grey;text-decoration:none;}
+}
