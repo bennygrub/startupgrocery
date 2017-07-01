@@ -12,31 +12,43 @@
 .bg-grey
   .container
     .col-xs-12.col-sm-2
-      %h4 Categories
-      -Category.all.each do |category|
-        =link_to category_path(category) do
-          .category-box
-            =category.name
+      .categories-sidebar
+        %h4 Categories
+        -Category.all.each do |category|
+          =link_to category_path(category) do
+            .category-box
+              =category.name
     .col-xs-12.col-sm-8
       - @product_weeks.sort.reverse.each do |week, products|
-        .week-box
+        .week-of
           %h2.text-center
-            Week of
+            { Week of
             = week.beginning_of_week.strftime('%b %d')
             to
             = week.end_of_week.strftime('%b %d, %Y')
-          %hr
+            }
           -products.each do |product|
-            .media
-              .media-left.media-middle
-                =link_to product do
-                  =image_tag(product.images.first.url, class: "media-object", style: "max-width: 300px;")
-              .media-body.media-middle
-                %h4.media-heading
+            .week-box
+              .vendor-header
+                .pull-left
+                  .img-bg
+                    =link_to product.vendor do
+                      =image_tag(product.vendor.vendor_picture, class: "img-responsive", style:"max-width:25px;")
+                .pull-left
+                  %h4{style:"margin-top:3px;font-weight:100;"}
+                    =link_to product.vendor.name.downcase, product.vendor
+                .clearfix
+              =link_to product do
+                =image_tag(product.images.first.url, class: "img-responsive")
+                %h3.media-heading
                   =product.name
                 %p
                   =product.description
 
-            %hr
+              %hr
+              =link_to product.category do
+                .glyphicon.glyphicon-ice-lolly-tasted
+                =product.category.name
     .col-xs-12.col-sm-2
-      %h4 Newsletter
+      .newsletter-sidebar
+        %h4 Newsletter

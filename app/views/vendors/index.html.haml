@@ -1,0 +1,24 @@
+.page-header
+  = link_to new_vendor_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Vendor
+  %h1 Listing vendors
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Vendor picture
+        %th
+        %th
+        %th
+
+    %tbody
+      - @vendors.each do |vendor|
+        %tr
+          %td= vendor.name
+          %td= vendor.vendor_picture
+          %td= link_to 'Show', vendor
+          %td= link_to 'Edit', edit_vendor_path(vendor)
+          %td= link_to 'Destroy', vendor, data: { confirm: 'Are you sure?' }, method: :delete

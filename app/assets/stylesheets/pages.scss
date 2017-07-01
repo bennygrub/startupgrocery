@@ -7,6 +7,7 @@
   background: #eeeeee;
   padding: 50px 0px;
   border-top: #c4c4c4 1px solid;
+  h2{font-weight: 100;}
 }
 
 .jumbotron{background-color:white;}
@@ -16,7 +17,6 @@
   border: 1px solid lightgrey;
   margin-bottom: 30px;
   padding: 15px;
-  h2{font-weight: 100;}
 }
 
 .category-box {
@@ -30,9 +30,28 @@
   a{color:grey;}
 }
 
+.img-bg {
+    background: grey;
+    width: 25px;
+    height: 25px;
+    overflow: hidden;
+    margin-right: 10px;
+}
+
 .navbar-default{background-color:white;}
 
 a{
   color:grey;
   &:hover{color:grey;text-decoration:none;}
 }
+
+.vendor-header {
+    border-bottom: 1px solid #d1d1d1;
+    margin-left: -15px;
+    margin-right: -15px;
+    padding: 5px 15px 10px;
+}
+
+.week-of{border-top:1px solid grey;}
+.categories-sidebar,.newsletter-sidebar{position:fixed;}
+.newsletter-sidebar{background:#f7f7f7;width: inherit;padding:10px;}
