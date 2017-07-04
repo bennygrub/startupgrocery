@@ -2,6 +2,20 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.btn-primary{
+  background:#7bba75;
+  color:black;
+  border:none;
+  border-radius:0px;
+  padding: 10px 40px;
+  transition: background 0.5s ease;
+  
+
+  &:hover{
+    background:#99d893;
+    color:black;
+  }
+}
 
 .bg-grey {
   background: #eeeeee;
@@ -41,8 +55,8 @@
 .navbar-default{background-color:white;}
 
 a{
-  color:grey;
-  &:hover{color:grey;text-decoration:none;}
+  color:#7bba75;
+  &:hover{color:#7bba75;text-decoration:none;}
 }
 
 .vendor-header {
@@ -53,5 +67,4 @@ a{
 }
 
 .week-of{border-top:1px solid grey;}
-.categories-sidebar,.newsletter-sidebar{position:fixed;}
-.newsletter-sidebar{background:#f7f7f7;width: inherit;padding:10px;}
+.newsletter-sidebar{background:#f7f7f7;padding:10px;}

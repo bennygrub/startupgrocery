@@ -1,0 +1,1 @@
+$('.product-<%= @favorite.product_id %>').html('<%= j render 'favorites/heart', product: Product.find(@favorite.product_id) %>');

@@ -8,9 +8,15 @@
   %h1 Show product
 
 %dl.dl-horizontal
-  -@product.images.each do |image|
-    %p
-      =image_tag(image.url, class: "img-responsive")
+  -@product.images.each_with_index do |image, index|
+    -if index == 0
+      .col-xs-12.col-sm-6
+        =image_tag(image.url, class: "img-responsive")
+    -else
+      .col-xs-12.col-sm-3
+        =image_tag(image.url, class: "img-responsive")
+
+  .clearfix
   %dt Name:
   %dd= @product.name
   %dt Description:
@@ -21,3 +27,20 @@
   %dd= @product.msrp
   %dt Slug:
   %dd= @product.slug
+
+%div
+  %h3 Images
+
+  - @product.images.each_with_index do |image, index| #grab the index
+    %div
+      = image_tag(image.url, style: "max-width: 200px;")
+      = link_to "Delete", product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }  
+  %hr
+  .col-xs-12
+    %h4 Add More Images
+    = form_for @product, url: product_images_path(@product), method: :post do |f|
+      .form-group
+        = f.file_field :images, multiple: true, class: 'form-control'
+      .form-group
+        = f.submit "Add More Images", class: "btn btn-primary"
+        

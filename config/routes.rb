@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
+  resources :favorites
   resources :vendors
   resources :categories
-  resources :products
+  resources :products do
+    resources :images, :only => [:create, :destroy] # support #create and #destroy
+  end
   devise_for :users
   resources :users, only: [:index, :show, :destroy]
   get 'pages/home'
