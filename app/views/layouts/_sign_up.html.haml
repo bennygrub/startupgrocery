@@ -16,8 +16,12 @@
           = devise_error_messages!
           .col-xs-12.col-sm-8.col-sm-offset-2
             .input-group.input-group-lg
+              %span#basic-addon1.input-group-addon U
+              = f.text_field :username, autofocus: true, class: "form-control", placeholder: "username"
+            %br
+            .input-group.input-group-lg
               %span#basic-addon1.input-group-addon @
-              = f.email_field :email, autofocus: true, class: "form-control", placeholder: "email"
+              = f.email_field :email, class: "form-control", placeholder: "email"
             %br
             .input-group.input-group-lg
               %span#basic-addon1.input-group-addon #

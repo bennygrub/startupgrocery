@@ -36,12 +36,12 @@
               %a{href: "#", "data-target" => "#submitAProduct", "data-toggle" => "modal"} Submit a Product
           %ul.nav.navbar-nav.navbar-right
             -if current_user
+              %p.navbar-text
+                =link_to current_user, class: "navbar-link" do
+                  =image_tag("samari.jpg", style: "width:20px;border:1px solid lightgrey;border-radius:50%;", class: "img-circle")
+                  %span{style:"font-weight:100;"}=current_user.username.upcase
               %li
                 = link_to "Logout", destroy_user_session_path, :method=>'delete'
-              %p.navbar-text
-                Signed in as
-                =link_to current_user, class: "navbar-link" do
-                  =current_user.email
             -else
               %li
                 %a{href: "#", "data-target" => "#logInModal", "data-toggle" => "modal", style: "outline: 1px solid #e7e7e7;"} Log In

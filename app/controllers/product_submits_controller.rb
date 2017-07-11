@@ -28,8 +28,8 @@ class ProductSubmitsController < ApplicationController
 
     respond_to do |format|
       if @product_submit.save
-        format.html { redirect_to pages_contact_path, notice: 'Product submit was successfully submitted.' }
-        format.json { render :show, status: :created, location: pages_contact_url }
+        format.html { redirect_to "/", notice: 'Thank you for submitting a product. We are excited to check it out!' }
+        format.json { render :show, status: :created, location: "/" }
       else
         format.html { render :new }
         format.json { render json: @product_submit.errors, status: :unprocessable_entity }

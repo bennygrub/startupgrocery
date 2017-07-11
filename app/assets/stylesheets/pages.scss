@@ -91,6 +91,10 @@ a{
   p{font-size: 18px;line-height:40px;}
 }
 
-.modal-content {
-  border-radius: 0px;
+.alert, .modal-content, #basic-addon1, .input-group-lg > .form-control, .form-control{border-radius:0px;}
+
+.alert {
+  position: absolute;
+  width: 100%;
+  z-index: 2000;
 }
