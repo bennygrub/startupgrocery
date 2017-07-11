@@ -44,8 +44,8 @@
                   =current_user.email
             -else
               %li
-                =link_to "Log in", new_user_session_path
-              %li=link_to "Sign up", new_user_registration_path
+                %a{href: "#", "data-target" => "#logInModal", "data-toggle" => "modal"} Log In
+              %li=link_to "Sign up", "#", "data-target" => "#signUpModal", "data-toggle" => "modal"
 
 
     .main-wrapper{:class => ("container" unless @wide)}
@@ -56,3 +56,6 @@
             %span.sr-only Close
           = msg
       = yield
+      = render "layouts/sign_up"
+      = render "layouts/login"
+
