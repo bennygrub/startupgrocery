@@ -1,6 +1,9 @@
 class CategoriesController < ApplicationController
   before_action :set_category, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, except: [:show]
+  before_action :admin, except: [:show]
+  include SharedFilters
+  
   # GET /categories
   # GET /categories.json
   def index

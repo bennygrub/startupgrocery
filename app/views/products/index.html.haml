@@ -8,6 +8,7 @@
   %table.table.table-striped.table-bordered.table-hover
     %thead
       %tr
+        %th ID
         %th Name
         %th Description
         %th Ingredients
@@ -20,6 +21,7 @@
     %tbody
       - @products.each do |product|
         %tr
+          %td= product.id
           %td= product.name
           %td= product.description
           %td= product.ingredients

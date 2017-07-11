@@ -1,5 +1,8 @@
 class ProductSubmitsController < ApplicationController
   before_action :set_product_submit, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!, except: [:create]
+  before_action :admin, except: [:create]
+  include SharedFilters
 
   # GET /product_submits
   # GET /product_submits.json

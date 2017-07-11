@@ -1,5 +1,8 @@
 class ImagesController < ApplicationController
   before_action :set_product
+  before_action :authenticate_user!
+  before_action :admin
+  include SharedFilters
 
   def create
     add_more_images(images_params[:images])

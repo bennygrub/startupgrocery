@@ -1,0 +1,29 @@
+.text-center
+  %h1
+    All Users
+
+  .underline
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th ID
+        %th Username
+        %th Email
+        %th
+        %th
+        %th
+
+    %tbody
+      -@users.each do |user|
+        %tr
+          %td= user.id
+          %td= user.username
+          %td= user.email
+          %td= link_to 'Show', user
+          %td= link_to 'Edit', edit_user_registration_path
+          %td= link_to 'Destroy', user, data: { confirm: 'Are you sure?' }, method: :delete
+
+
+  

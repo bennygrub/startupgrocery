@@ -10,7 +10,7 @@
         %br
         %p
           %a.btn.btn-primary.btn-lg{:href => "#", :role => "button", "data-target" => "#signUpModal", "data-toggle" => "modal"} Sign up
-      .col-xs-12.col-sm-3
+      .col-xs-12.col-sm-3.hidden-xs
         =image_tag("samari.jpg", class: "img-responsive")
         .text-center
           %span{style: "font-size:8px;"}
@@ -19,7 +19,7 @@
 
 .bg-grey
   .container
-    .col-xs-12.col-sm-2
+    .col-xs-12.col-sm-2.hidden-xs
       .categories-sidebar
         %h4 Categories
         -Category.all.each do |category|
