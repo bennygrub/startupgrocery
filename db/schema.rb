@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170710015850) do
+ActiveRecord::Schema.define(version: 20170711173252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20170710015850) do
     t.integer "category_id"
     t.datetime "publish_at", default: -> { "now()" }
     t.integer "vendor_id"
+    t.string "buy_link"
     t.index ["slug"], name: "index_products_on_slug", unique: true
   end
 

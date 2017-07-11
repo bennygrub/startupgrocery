@@ -27,6 +27,10 @@
     .col-sm-10
       = f.text_field :msrp, class: 'form-control'
   .form-group
+    = f.label :buy_link, class: 'col-sm-2 control-label'
+    .col-sm-10
+      = f.text_field :buy_link, class: 'form-control'
+  .form-group
     = f.label :category_id, class: 'col-sm-2 control-label'
     .col-sm-10
       = f.collection_select :category_id, Category.all, :id, :name, class: 'form-control'

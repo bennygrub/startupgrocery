@@ -9,29 +9,40 @@
       %ul
         - @product_submit.errors.full_messages.each do |msg|
           %li= msg
+  .col-xs-12.col-sm-8.col-sm-offset-2
+    .form-group
+      .input-group.input-group-lg
+        %span#basic-addon1.input-group-addon
+          %span.glyphicon.glyphicon-user
+        = f.text_field :name, class: 'form-control', placeholder: "Your Name"
+    .form-group
+      .input-group.input-group-lg
+        %span#basic-addon1.input-group-addon
+          %span.glyphicon.glyphicon-envelope
+        = f.text_field :email, class: 'form-control', placeholder: "Your Email"
+    .form-group
+      .input-group.input-group-lg
+        %span#basic-addon1.input-group-addon
+          %span.glyphicon.glyphicon-barcode
+        = f.text_field :product_name, class: 'form-control', placeholder: "Product Name"
+    .form-group
+      .input-group.input-group-lg
+        %span#basic-addon1.input-group-addon
+          %span.glyphicon.glyphicon-align-left
+        = f.text_area :description, class: 'form-control', placeholder: "Product Description"
+    .form-group
+      .input-group.input-group-lg
+        %span#basic-addon1.input-group-addon
+          %span.glyphicon.glyphicon-link
+        = f.text_field :url, class: 'form-control', placeholder: "Product Website"
+    .form-group
 
-  .form-group
-    .col-sm-offset-2.col-sm-8
-      = f.text_field :name, class: 'form-control', placeholder: "Your Name"
-  .form-group
-    .col-sm-offset-2.col-sm-8
-      = f.text_field :email, class: 'form-control', placeholder: "Your Email"
-  .form-group
-    .col-sm-offset-2.col-sm-8
-      = f.text_field :product_name, class: 'form-control', placeholder: "Product Name"
-  .form-group
-    .col-sm-offset-2.col-sm-8
-      = f.text_area :description, class: 'form-control', placeholder: "Product Description"
-  .form-group
-    .col-sm-offset-2.col-sm-8
-      = f.text_field :url, class: 'form-control', placeholder: "Product Website"
-  .form-group
+      .input-group.input-group-lg
+        %span#basic-addon1.input-group-addon
+          %span.glyphicon.glyphicon-picture
+        = f.file_field :image, class: 'form-control', placeholder: ""
 
-    = f.label "Upload Product Image", class: 'col-sm-offset-2 control-label col-sm-8', style:"text-align:left;"
-    %br
-    .col-sm-offset-2.col-sm-8
-      = f.file_field :image, class: 'form-control', placeholder: ""
-
-  .form-group
-    .col-sm-offset-2.col-sm-8
-      = f.submit "Submit Product", class: 'btn btn-primary'
+    .form-group
+      .text-center
+        = f.submit "Submit Product", class: 'btn btn-primary'
+  .clearfix

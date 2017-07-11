@@ -8,8 +8,7 @@
 
       =image_tag("red-bite.png", class: "img-responsive", style: "width:25px;margin: auto;")
 -else
-  =link_to new_user_session_path do
-
+  =link_to "#", "data-target" => "#logInModal", "data-toggle" => "modal" do
     =image_tag("bite.png", class: "img-responsive", style: "width:25px;margin: auto;")
 
 .favorite-count{style:"font-size:16px;"}

@@ -1,15 +1,12 @@
-#signUpModal.modal.fade{:role => "dialog", :tabindex => "-1"}
+#submitAProduct.modal.fade{:role => "dialog", :tabindex => "-1"}
   .modal-dialog{:role => "document"}
     .modal-content
       %button.close{"aria-label" => "Close", "data-dismiss" => "modal", :type => "button", style: "padding: 10px;"}
         %span{"aria-hidden" => "true"} ×
-      .text-center
-        =image_tag("samari.jpg", class: "img-responsive", style: "max-width:200px;margin:auto;")
-        %span{style: "font-size:8px;"}
-          Sketch credit to:
-          =link_to "Fabric Eight", "http://fabriceight.tumblr.com/page/2"
-        .modal-header
-          %h3.modal-title Sign Up & Join The Foodie Community
+      .text-center{style: "margin-top:60px;"}
+        %h1 Submit a Product
+        .underline
+        %p{style:"padding:10px 30px;"} Do you know of a new product for the Startup Grocery? Or do you produce a startup food product? Let us know by sending us an email.
       .modal-body
         =render "product_submits/form"
 

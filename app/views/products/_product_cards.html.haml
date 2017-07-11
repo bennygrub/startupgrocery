@@ -25,5 +25,6 @@
       .glyphicon.glyphicon-ice-lolly-tasted
       =product.category.name
     .col-xs-6.text-right
-      =link_to "Buy", "https://www.startupgrocery.com", class: "btn btn-primary"
+      -unless product.buy_link.blank?
+        =link_to "Get it now", product.buy_link, target: "_blank", class: "btn btn-primary"
     .clearfix

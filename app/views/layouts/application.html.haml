@@ -33,7 +33,7 @@
             %li
               %a{href: "/pages/about"} About
             %li
-              %a{href: "/pages/contact"} Submit a Product
+              %a{href: "#", "data-target" => "#submitAProduct", "data-toggle" => "modal"} Submit a Product
           %ul.nav.navbar-nav.navbar-right
             -if current_user
               %li
@@ -44,8 +44,10 @@
                   =current_user.email
             -else
               %li
-                %a{href: "#", "data-target" => "#logInModal", "data-toggle" => "modal"} Log In
-              %li=link_to "Sign up", "#", "data-target" => "#signUpModal", "data-toggle" => "modal"
+                %a{href: "#", "data-target" => "#logInModal", "data-toggle" => "modal", style: "outline: 1px solid #e7e7e7;"} Log In
+              %li
+                =link_to "Sign up", "#", "data-target" => "#signUpModal", "data-toggle" => "modal", style: "background: #99d893;color: #333333;"
+
 
 
     .main-wrapper{:class => ("container" unless @wide)}
@@ -58,4 +60,5 @@
       = yield
       = render "layouts/sign_up"
       = render "layouts/login"
+      = render "layouts/submit_a_product"
 
