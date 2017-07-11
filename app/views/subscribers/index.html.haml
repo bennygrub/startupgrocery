@@ -1,0 +1,22 @@
+.page-header
+  = link_to new_subscriber_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Subscriber
+  %h1 Listing subscribers
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Email
+        %th
+        %th
+        %th
+
+    %tbody
+      - @subscribers.each do |subscriber|
+        %tr
+          %td= subscriber.email
+          %td= link_to 'Show', subscriber
+          %td= link_to 'Edit', edit_subscriber_path(subscriber)
+          %td= link_to 'Destroy', subscriber, data: { confirm: 'Are you sure?' }, method: :delete

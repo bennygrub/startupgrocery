@@ -1,0 +1,29 @@
+.week-box
+  .vendor-header
+    .pull-left
+      .img-bg
+        =link_to product.vendor do
+          =image_tag(product.vendor.vendor_picture, class: "img-responsive", style:"max-width:25px;")
+    .pull-left
+      %h4{style:"margin-top:3px;font-weight:100;"}
+        =link_to product.vendor.name.downcase, product.vendor
+    .pull-right
+      .text-center
+        .heart{class: "product-#{product.id}"}
+          =render "favorites/heart", product: product
+    .clearfix
+
+  =image_tag(product.images.first.url, class: "img-responsive")
+  %h3.media-heading
+    =product.name
+  %p
+    =product.description
+
+  %hr
+  =link_to product.category do
+    .col-xs-6.text-left
+      .glyphicon.glyphicon-ice-lolly-tasted
+      =product.category.name
+    .col-xs-6.text-right
+      =link_to "Buy", "https://www.startupgrocery.com", class: "btn btn-primary"
+    .clearfix

@@ -1,14 +1,9 @@
-.page-header
-  = link_to vendors_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to edit_vendor_path(@vendor), class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-pencil
-    Edit
-  %h1 Show vendor
+.text-center
+  %h1=@vendor.name
+  .underline
+.bg-grey
+  -@products.each do |product|
+    .col-xs-4
+      =render "products/product_cards", product: product
 
-%dl.dl-horizontal
-  %dt Name:
-  %dd= @vendor.name
-  %dt Vendor picture:
-  %dd= @vendor.vendor_picture
+  .clearfix

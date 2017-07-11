@@ -1,0 +1,32 @@
+.page-header
+  = link_to new_product_submit_path, class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-plus
+    New Product submit
+  %h1 Listing product_submits
+
+.table-responsive
+  %table.table.table-striped.table-bordered.table-hover
+    %thead
+      %tr
+        %th Name
+        %th Email
+        %th Product name
+        %th Description
+        %th Image
+        %th Url
+        %th
+        %th
+        %th
+
+    %tbody
+      - @product_submits.each do |product_submit|
+        %tr
+          %td= product_submit.name
+          %td= product_submit.email
+          %td= product_submit.product_name
+          %td= product_submit.description
+          %td= product_submit.image
+          %td= product_submit.url
+          %td= link_to 'Show', product_submit
+          %td= link_to 'Edit', edit_product_submit_path(product_submit)
+          %td= link_to 'Destroy', product_submit, data: { confirm: 'Are you sure?' }, method: :delete

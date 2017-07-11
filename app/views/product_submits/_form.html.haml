@@ -1,0 +1,37 @@
+= form_for @product_submit, html: { class: "form-horizontal", role: "form" } do |f|
+  -if @product_submit.errors.any?
+    .alert.alert-danger.alert-dismissable{role: "alert"}
+      %button.close{type: "button", data: {dismiss: "alert"} }
+        %span{aria: {hidden: "true"} } &times;
+        %span.sr-only Close
+      %h4= "#{pluralize(@product_submit.errors.count, "error")} prohibited this product_submit from being saved:"
+
+      %ul
+        - @product_submit.errors.full_messages.each do |msg|
+          %li= msg
+
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.text_field :name, class: 'form-control', placeholder: "Your Name"
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.text_field :email, class: 'form-control', placeholder: "Your Email"
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.text_field :product_name, class: 'form-control', placeholder: "Product Name"
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.text_area :description, class: 'form-control', placeholder: "Product Description"
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.text_field :url, class: 'form-control', placeholder: "Product Website"
+  .form-group
+
+    = f.label "Upload Product Image", class: 'col-sm-offset-2 control-label col-sm-8', style:"text-align:left;"
+    %br
+    .col-sm-offset-2.col-sm-8
+      = f.file_field :image, class: 'form-control', placeholder: ""
+
+  .form-group
+    .col-sm-offset-2.col-sm-8
+      = f.submit "Submit Product", class: 'btn btn-primary'

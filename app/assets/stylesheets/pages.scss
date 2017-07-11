@@ -17,6 +17,10 @@
   }
 }
 
+h1 {
+  font-weight:300!important;
+}
+
 .bg-grey {
   background: #eeeeee;
   padding: 50px 0px;
@@ -68,3 +72,16 @@ a{
 
 .week-of{border-top:1px solid grey;}
 .newsletter-sidebar{background:#f7f7f7;padding:10px;}
+
+.underline{
+  border-width: 1px 0 0 0;
+  width: 50px;
+  clear: both;
+  border-top: 2px solid #1c1d1d;
+  height:0;
+  margin: 20px auto;
+}
+
+#about{
+  p{font-size: 18px;line-height:40px;}
+}

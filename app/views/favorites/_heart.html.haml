@@ -2,12 +2,16 @@
   -if Favorite.where(user_id: current_user.id, product_id: product.id).count < 1
     =link_to favorites_path({"favorite" => {user_id: current_user.id, product_id: product.id}}), method: :post, :remote => true do
 
-      =image_tag("bite.png", class: "img-responsive", style: "width:25px;")
+      =image_tag("bite.png", class: "img-responsive", style: "width:25px;margin: auto;")
   -else
     =link_to Favorite.where(user_id: current_user.id, product_id: product.id).first, remote: true, method: :delete do
 
-      =image_tag("red-bite.png", class: "img-responsive", style: "width:25px;")
+      =image_tag("red-bite.png", class: "img-responsive", style: "width:25px;margin: auto;")
 -else
   =link_to new_user_session_path do
 
-    =image_tag("bite.png", class: "img-responsive", style: "width:25px;")
+    =image_tag("bite.png", class: "img-responsive", style: "width:25px;margin: auto;")
+
+.favorite-count{style:"font-size:16px;"}
+  =Favorite.where(product_id: product.id).count
+  Favs

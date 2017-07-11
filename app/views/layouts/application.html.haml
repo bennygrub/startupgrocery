@@ -33,7 +33,7 @@
             %li
               %a{href: "/pages/about"} About
             %li
-              %a{href: "/pages/contact"} Contact
+              %a{href: "/pages/contact"} Submit a Product
           %ul.nav.navbar-nav.navbar-right
             -if current_user
               %li
@@ -43,7 +43,8 @@
                 =link_to current_user, class: "navbar-link" do
                   =current_user.email
             -else
-              %li=link_to "Log in", new_user_session_path
+              %li
+                =link_to "Log in", new_user_session_path
               %li=link_to "Sign up", new_user_registration_path
 
 

@@ -1,21 +1,22 @@
-%h4
-.jumbotron
-  .container
-    .col-xs-12.col-sm-9
-      %h2 Discover the best new food products, everday.
-      %br
-      %p
-        Startup Grocery finds the best new products, every day. It's a place for food lovers to find, share and try out the hotest food entrepreneurs best food creations.
-      -unless current_user
+-unless current_user
+  %h4
+  .jumbotron
+    .container
+      .col-xs-12.col-sm-9
+        %h2 Discover the best new food products, everday.
         %br
         %p
-          %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Sign Up
-    .col-xs-12.col-sm-3
-      =image_tag("samari.jpg", class: "img-responsive")
-      .text-center
-        %span{style: "font-size:8px;"}
-          Sketch credit to:
-          =link_to "Fabric Eight", "http://fabriceight.tumblr.com/page/2"
+          Startup Grocery finds the best new products, every day. It's a place for food lovers to find, share and try out the hotest food entrepreneurs best food creations.
+        -unless current_user
+          %br
+          %p
+            %a.btn.btn-primary.btn-lg{:href => "#", :role => "button"} Sign Up
+      .col-xs-12.col-sm-3
+        =image_tag("samari.jpg", class: "img-responsive")
+        .text-center
+          %span{style: "font-size:8px;"}
+            Sketch credit to:
+            =link_to "Fabric Eight", "http://fabriceight.tumblr.com/page/2"
 
 .bg-grey
   .container
@@ -36,40 +37,29 @@
             = week.end_of_week.strftime('%b %d, %Y')
             }
           -products.each do |product|
-            .week-box
-              .vendor-header
-                .pull-left
-                  .img-bg
-                    =link_to product.vendor do
-                      =image_tag(product.vendor.vendor_picture, class: "img-responsive", style:"max-width:25px;")
-                .pull-left
-                  %h4{style:"margin-top:3px;font-weight:100;"}
-                    =link_to product.vendor.name.downcase, product.vendor
-                .pull-right
-                  .heart{class: "product-#{product.id}"}
-                    =render "favorites/heart", product: product
-                .clearfix
-
-              =image_tag(product.images.first.url, class: "img-responsive")
-              %h3.media-heading
-                =product.name
-              %p
-                =product.description
-
-              %hr
-              =link_to product.category do
-                .col-xs-4
-                  .glyphicon.glyphicon-ice-lolly-tasted
-                  =product.category.name
-                .col-xs-4
-                  =link_to "Buy", "https://www.startupgrocery.com", class: "btn btn-primary"
-                .clearfix
+            =render "products/product_cards", product: product
     .col-xs-12.col-sm-3
       .newsletter-sidebar
         %h4 Newsletter
         %p
           Get the best new food products in your inbox, every week
-        =form_tag
-        .text-center
-          =link_to "Subscribe", "https://www.startupgrocery.com", class: "btn btn-primary"
+        = form_for @subscriber, html: { class: "form-horizontal", role: "form" } do |f|
+          -if @subscriber.errors.any?
+            .alert.alert-danger.alert-dismissable{role: "alert"}
+              %button.close{type: "button", data: {dismiss: "alert"} }
+                %span{aria: {hidden: "true"} } &times;
+                %span.sr-only Close
+              %h4= "#{pluralize(@subscriber.errors.count, "error")} prohibited this subscriber from being saved:"
+
+              %ul
+                - @subscriber.errors.full_messages.each do |msg|
+                  %li= msg
+
+          .form-group
+            .col-sm-12.text-center
+              = f.text_field :email, class: 'form-control', placeholder: "Your email"
+          .form-group
+            .col-sm-12.text-center
+              = f.submit "Subscribe", class: 'btn btn-primary', style: "width:100%;"
+
 

@@ -1,0 +1,22 @@
+.page-header
+  = link_to product_submits_path, class: 'btn btn-default' do
+    %span.glyphicon.glyphicon-list-alt
+    Back
+  = link_to edit_product_submit_path(@product_submit), class: 'btn btn-primary' do
+    %span.glyphicon.glyphicon-pencil
+    Edit
+  %h1 Show product_submit
+
+%dl.dl-horizontal
+  %dt Name:
+  %dd= @product_submit.name
+  %dt Email:
+  %dd= @product_submit.email
+  %dt Product name:
+  %dd= @product_submit.product_name
+  %dt Description:
+  %dd= @product_submit.description
+  %dt Image:
+  %dd= @product_submit.image
+  %dt Url:
+  %dd= @product_submit.url
