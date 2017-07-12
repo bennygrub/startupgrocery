@@ -26,5 +26,5 @@
       =product.category.name
     .col-xs-6.text-right
       -unless product.buy_link.blank?
-        =link_to "Get it now", product.buy_link, target: "_blank", class: "btn btn-primary"
+        =link_to "Get it now", product.buy_link, target: "_blank", class: "btn btn-primary", :onclick => "trackOutboundLink('#{product.buy_link}'); return false;"
     .clearfix
