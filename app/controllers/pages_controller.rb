@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def home
-    @products = Product.where("publish_at < ?", Time.now)
+    @products = Product.where("publish_at < ?", Time.now).order(publish_at: :desc)
     @product_weeks = @products.group_by { |t| t.publish_at.beginning_of_week }
     @subscriber = Subscriber.new
     @wide = true
