@@ -1,7 +1,7 @@
 .text-center
   %h1=@vendor.name
   .underline
-.bg-grey
+.container.bg-grey
   -@products.each do |product|
     .col-xs-4
       =render "products/product_cards", product: product

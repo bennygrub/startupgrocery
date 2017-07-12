@@ -1,8 +1,8 @@
 .text-center
   %h1=@category.name
   .underline
-.bg-grey
-  .container
+
+.container.bg-grey
     -@products.each do |product|
       .col-xs-4
         =render "products/product_cards", product: product
