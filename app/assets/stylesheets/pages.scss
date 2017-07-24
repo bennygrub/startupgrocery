@@ -102,3 +102,11 @@ a{
 .media-heading{
   margin-top: 10px;
 }
+
+
+
+@media only screen and (max-width : 767px) {
+  .week-box {
+    height: auto !important;
+  } 
+}

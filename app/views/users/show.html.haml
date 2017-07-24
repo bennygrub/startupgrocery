@@ -12,3 +12,9 @@
     .col-xs-4
       =render "products/product_cards", product: Product.friendly.find(favorite.product_id)
   .clearfix
+
+
+:javascript
+  $(function() {
+    $('.week-box').matchHeight();
+  });

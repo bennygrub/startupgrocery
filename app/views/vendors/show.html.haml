@@ -3,7 +3,12 @@
   .underline
 .container.bg-grey
   -@products.each do |product|
-    .col-xs-4
+    .col-xs-12.col-sm-4
       =render "products/product_cards", product: product
 
   .clearfix
+
+:javascript
+  $(function() {
+    $('.week-box').matchHeight();
+  });
