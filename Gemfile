@@ -69,6 +69,9 @@ gem 'jquery-rails'
 gem 'carrierwave', '~> 1.0'
 gem "fog-aws"
 
+#emailing
+#gem 'premailer-rails'
+#gem 'nokogiri'
 
 #tagging
 
