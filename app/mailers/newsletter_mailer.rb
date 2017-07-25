@@ -6,7 +6,8 @@ class NewsletterMailer < ApplicationMailer
   #   en.newsletter_mailer.weekly.subject
   #
   def weekly
-    @greeting = "Hi"
+    @products = Product.where("publish_at < ?", Time.now - 7.days)
+
 
     mail to: "blgruber@gmail.com"
   end

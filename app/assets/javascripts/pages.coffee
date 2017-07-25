@@ -3,7 +3,10 @@
 # You can use CoffeeScript in this file: http://coffeescript.org/
 
 $(document).on 'turbolinks:load', ->
-
+  lightbox.option
+    'resizeDuration': 200
+    'wrapAround': true
+    'albumLabel': ''
   disappear = () ->
     $(".alert").fadeOut(1000)
 

@@ -1,46 +1,68 @@
-.page-header
-  = link_to products_path, class: 'btn btn-default' do
-    %span.glyphicon.glyphicon-list-alt
-    Back
-  = link_to edit_product_path(@product), class: 'btn btn-primary' do
-    %span.glyphicon.glyphicon-pencil
-    Edit
-  %h1 Show product
+.text-center
+  %h1=@product.name
+  .underline
+.container
+  .col-xs-12.text-center{style: "margin-bottom:30px;  "}
+    %p=@product.description
 
-%dl.dl-horizontal
   -@product.images.each_with_index do |image, index|
     -if index == 0
       .col-xs-12.col-sm-6
-        =image_tag(image.url, class: "img-responsive")
+        %a{href: image.url, "data-lightbox" => "product-gallery"}
+          =image_tag(image.url, class: "img-responsive")
     -else
-      .col-xs-12.col-sm-3
-        =image_tag(image.url, class: "img-responsive")
+      .col-xs-12.col-sm-3.box
+        %a{href: image.url, "data-lightbox" => "product-gallery"}
+          =image_tag(image.url, class: "img-responsive")
+-if current_user
+  -if current_user.admin
+    .page-header
+      = link_to products_path, class: 'btn btn-default' do
+        %span.glyphicon.glyphicon-list-alt
+        Back
+      = link_to edit_product_path(@product), class: 'btn btn-primary' do
+        %span.glyphicon.glyphicon-pencil
+        Edit
+      %h1 Show product
 
-  .clearfix
-  %dt Name:
-  %dd= @product.name
-  %dt Description:
-  %dd= @product.description
-  %dt Ingredients:
-  %dd= @product.ingredients
-  %dt Msrp:
-  %dd= @product.msrp
-  %dt Slug:
-  %dd= @product.slug
+    %dl.dl-horizontal
+      -@product.images.each_with_index do |image, index|
+        -if index == 0
+          .col-xs-12.col-sm-6
+            =image_tag(image.url, class: "img-responsive")
+        -else
+          .col-xs-12.col-sm-3
+            =image_tag(image.url, class: "img-responsive")
 
-%div
-  %h3 Images
+      .clearfix
+      %dt Name:
+      %dd= @product.name
+      %dt Description:
+      %dd= @product.description
+      %dt Ingredients:
+      %dd= @product.ingredients
+      %dt Msrp:
+      %dd= @product.msrp
+      %dt Slug:
+      %dd= @product.slug
 
-  - @product.images.each_with_index do |image, index| #grab the index
     %div
-      = image_tag(image.url, style: "max-width: 200px;")
-      = link_to "Delete", product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }  
-  %hr
-  .col-xs-12
-    %h4 Add More Images
-    = form_for @product, url: product_images_path(@product), method: :post do |f|
-      .form-group
-        = f.file_field :images, multiple: true, class: 'form-control'
-      .form-group
-        = f.submit "Add More Images", class: "btn btn-primary"
-        
+      %h3 Images
+
+      - @product.images.each_with_index do |image, index| #grab the index
+        %div
+          = image_tag(image.url, style: "max-width: 200px;")
+          = link_to "Delete", product_image_path(@product, index), :method => :delete, data: { confirm: "Are you sure you want to delete this image?" }  
+      %hr
+      .col-xs-12
+        %h4 Add More Images
+        = form_for @product, url: product_images_path(@product), method: :post do |f|
+          .form-group
+            = f.file_field :images, multiple: true, class: 'form-control'
+          .form-group
+            = f.submit "Add More Images", class: "btn btn-primary"
+            
+:javascript
+  $( document ).on('turbolinks:load', function() {
+    $('.box').matchHeight();
+  }) 
