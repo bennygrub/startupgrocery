@@ -1,7 +1,7 @@
 class SubscribersController < ApplicationController
   before_action :set_subscriber, only: [:show, :edit, :update, :destroy, :subscribe]
-  before_action :authenticate_user!, except: [:create]
-  before_action :admin, except: [:create]
+  before_action :authenticate_user!, except: [:create, :subscribe]
+  before_action :admin, except: [:create, :subscribe]
   include SharedFilters
 
   # GET /subscribers
