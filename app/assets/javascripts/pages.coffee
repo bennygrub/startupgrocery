@@ -12,3 +12,9 @@ $(document).on 'turbolinks:load', ->
 
   if $(".alert").length > 0
     setTimeout disappear, 1000
+
+  $(".get-it-now").click ->
+    ga 'send', 'event',
+      eventCategory: 'Outbound Buy Link'
+      eventAction: 'click'
+      eventLabel: $(this).data("link")

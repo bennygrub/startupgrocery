@@ -21,11 +21,12 @@
     =product.description
 
   %hr
-  =link_to product.category do
-    .col-xs-6.text-left
+  
+  .col-xs-6.text-left
+    =link_to product.category do
       .glyphicon.glyphicon-ice-lolly-tasted
       =product.category.name
-    .col-xs-6.text-right
-      -unless product.buy_link.blank?
-        =link_to "Get it now", product.buy_link, target: "_blank", class: "btn btn-primary", :onclick => "trackOutboundLink('#{product.buy_link}'); return false;"
-    .clearfix
+  .col-xs-6.text-right
+    -unless product.buy_link.blank?
+      =link_to "Get it now", product.buy_link, target: "_blank", class: "btn btn-primary get-it-now", target: "_blank", data: {link: "#{product.buy_link}"}
+  .clearfix
