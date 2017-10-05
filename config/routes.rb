@@ -1,6 +1,10 @@
 Rails.application.routes.draw do
   resources :product_submits
-  resources :subscribers
+  resources :subscribers do
+    member do
+      get :subscribe
+    end
+  end 
   resources :favorites
   resources :vendors
   resources :categories

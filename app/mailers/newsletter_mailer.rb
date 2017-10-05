@@ -5,10 +5,11 @@ class NewsletterMailer < ApplicationMailer
   #
   #   en.newsletter_mailer.weekly.subject
   #
-  def weekly(email)
+  def weekly(id)
     @products = Product.where("publish_at > ?", Time.now - 7.days)
-    @email = email
-
-    mail to: "#{@email}", subject: "#{@products.first.name}, #{@products.last.name} and more...", from: 'hello@startupgrocery.com'
+    @subscriber = Subscriber.find(id)
+    if @products.count > 1
+      mail to: "#{@subscriber.email}", subject: "#{@products.first.name}, #{@products.last.name} and more...", from: 'hello@startupgrocery.com'
+    end
   end
 end

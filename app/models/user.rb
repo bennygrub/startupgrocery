@@ -1,5 +1,7 @@
 class User < ApplicationRecord
 
+  after_create :create_subscriber
+
   extend FriendlyId
   friendly_id :username, use: [:slugged, :finders]
 
@@ -11,4 +13,8 @@ class User < ApplicationRecord
   validates :username, presence: true
 
   has_many :favorites, dependent: :destroy
+
+  def create_subscriber
+    Subscriber.create(email: self.email) unless Subscriber.where(email: self.email).count > 0
+  end
 end

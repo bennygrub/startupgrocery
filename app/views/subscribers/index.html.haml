@@ -9,6 +9,7 @@
     %thead
       %tr
         %th Email
+        %th Subscribed
         %th
         %th
         %th
@@ -18,5 +19,9 @@
         %tr
           %td= subscriber.email
           %td= link_to 'Show', subscriber
+          %td
+            =link_to "#{subscriber.subscribed}", subscribe_subscriber_path(subscriber)
+              
+            
           %td= link_to 'Edit', edit_subscriber_path(subscriber)
           %td= link_to 'Destroy', subscriber, data: { confirm: 'Are you sure?' }, method: :delete

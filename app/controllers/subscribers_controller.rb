@@ -1,5 +1,5 @@
 class SubscribersController < ApplicationController
-  before_action :set_subscriber, only: [:show, :edit, :update, :destroy]
+  before_action :set_subscriber, only: [:show, :edit, :update, :destroy, :subscribe]
   before_action :authenticate_user!, except: [:create]
   before_action :admin, except: [:create]
   include SharedFilters
@@ -64,6 +64,13 @@ class SubscribersController < ApplicationController
     end
   end
 
+  def subscribe
+    @subscriber.subscribed = @subscriber.subscribed ? false : true
+    @subscriber.save
+    flash[:notice] = 'You have successfully unsubscribed'
+    redirect_to root_path
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_subscriber
@@ -72,6 +79,6 @@ class SubscribersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def subscriber_params
-      params.require(:subscriber).permit(:email)
+      params.require(:subscriber).permit(:email, :subscribed)
     end
 end
